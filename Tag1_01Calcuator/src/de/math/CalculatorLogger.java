@@ -5,7 +5,7 @@ public class CalculatorLogger  implements Calculator{
 	
 	private final Calculator calculator;
 
-	public CalculatorLogger(final Calculator calculator) {
+	/* package */  CalculatorLogger(final Calculator calculator) {
 		this.calculator = calculator;
 	}
 

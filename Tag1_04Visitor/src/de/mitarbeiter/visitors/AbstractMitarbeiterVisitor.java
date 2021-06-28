@@ -3,7 +3,7 @@ package de.mitarbeiter.visitors;
 import de.mitarbeiter.Gehaltsempfaenger;
 import de.mitarbeiter.Lohnempfaenger;
 
-public abstract class AbstractMitarbeiterVisitor implements MitarbeiterVisitor{
+public abstract class AbstractMitarbeiterVisitor extends AbstractLifecycleMitarbeiterVisitor{
 
 	@Override
 	public void visit(Gehaltsempfaenger gehaltsempfaenger) {

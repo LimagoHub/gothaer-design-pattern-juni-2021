@@ -4,7 +4,7 @@ import de.mitarbeiter.AbstractMitarbeiter;
 import de.mitarbeiter.Gehaltsempfaenger;
 import de.mitarbeiter.Lohnempfaenger;
 
-public class PrintVisitor implements MitarbeiterVisitor {
+public class PrintVisitor extends AbstractLifecycleMitarbeiterVisitor{
 
 	@Override
 	public void visit(Gehaltsempfaenger gehaltsempfaenger) {

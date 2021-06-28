@@ -19,9 +19,8 @@ public class Firma {
 	}
 	
 	public void iterate(MitarbeiterVisitor visitor) {
-		for(AbstractMitarbeiter mitarbeiter: mitarbeiters) {
-			// visitor.visit(mitarbeiter);
-			mitarbeiter.accept(visitor);
-		}
+		visitor.init();
+		mitarbeiters.forEach(m->m.accept(visitor));
+		visitor.dispose();
 	}
 }

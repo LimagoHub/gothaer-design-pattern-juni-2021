@@ -15,6 +15,7 @@ public class CalculatorLogger  implements Calculator{
 	}
 
 	public double sub(double a, double b) {
+		System.out.println("Sub wurde gerufen");
 		return calculator.sub(a, b);
 	}
 	

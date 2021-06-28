@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.time.Instant;
 
 import de.client.CalcClient;
+import de.common.LoggerProxy;
 import de.math.Calculator;
 import de.math.CalculatorImpl;
 import de.math.CalculatorLogger;
@@ -16,18 +17,12 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		Instant start = Instant.now();
 		
-		//.....
-		
-		Instant ende = Instant.now();
-		Duration duration = Duration.between(start, ende);
-		
-		System.out.println("Duration = " + duration.toMillis());
 		
 		
 		Calculator calculator = new CalculatorImpl();
-		if(logger) calculator = new CalculatorLogger(calculator);
+		//if(logger) calculator = new CalculatorLogger(calculator);
+		if(logger) calculator =(Calculator) LoggerProxy.newInstance(calculator);
 		if(secure) calculator = new CalculatorSecure(calculator);
 		new CalcClient(calculator).go();
 

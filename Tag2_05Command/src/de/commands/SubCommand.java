@@ -8,7 +8,7 @@ public class SubCommand implements Command {
 	
 	@Override
 	public void parse(String[] tokens) {
-		value = Double.valueOf(tokens[0]);
+		value = Double.valueOf(tokens[1]);
 
 	}
 

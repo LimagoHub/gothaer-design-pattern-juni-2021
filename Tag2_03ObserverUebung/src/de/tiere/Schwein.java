@@ -3,9 +3,13 @@ package de.tiere;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.events.PropertyChangedListener;
+import de.events.PropertyChangedSupport;
+
 public class Schwein {
 	
 	private List<PigTooFatListener> pigTooFatListeners = new ArrayList<>();
+	private final PropertyChangedSupport propertyChangedSupport = new PropertyChangedSupport(this);
 	
 	public void addPigTooFatListener(PigTooFatListener listener) {
 		pigTooFatListeners.add(listener);
@@ -16,6 +20,16 @@ public class Schwein {
 	}
 	
 	
+	
+	
+	public boolean addPropertyChangedListener(PropertyChangedListener propertyChangedListener) {
+		return propertyChangedSupport.addPropertyChangedListener(propertyChangedListener);
+	}
+
+	public boolean removePropertyChangedListener(PropertyChangedListener propertyChangedListener) {
+		return propertyChangedSupport.removePropertyChangedListener(propertyChangedListener);
+	}
+
 	private void firePigTooFatEvent() {
 		for (PigTooFatListener pigTooFatListener : pigTooFatListeners) {
 			pigTooFatListener.pigTooFat(this);
@@ -38,7 +52,8 @@ public class Schwein {
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		if(name.equals(this.name)) return;
+		propertyChangedSupport.firePropertyChangedEvent("name", this.name, this.name = name);
 	}
 
 	public int getGewicht() {
@@ -46,7 +61,7 @@ public class Schwein {
 	}
 
 	private void setGewicht(int gewicht) {
-		this.gewicht = gewicht;
+		propertyChangedSupport.firePropertyChangedEvent("gewicht", this.gewicht, this.gewicht = gewicht);
 		if(this.gewicht > 20) firePigTooFatEvent();
 	}
 

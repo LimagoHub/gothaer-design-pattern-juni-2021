@@ -1,4 +1,4 @@
-package de.processors;
+package de.processors.handlers;
 
 public interface CharacterHandler {
 	

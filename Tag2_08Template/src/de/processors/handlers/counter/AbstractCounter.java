@@ -1,4 +1,6 @@
-package de.processors;
+package de.processors.handlers.counter;
+
+import de.processors.handlers.CharacterHandler;
 
 public abstract class AbstractCounter implements CharacterHandler {
 

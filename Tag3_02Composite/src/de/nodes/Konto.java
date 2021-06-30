@@ -1,5 +1,7 @@
 package de.nodes;
 
+import de.nodes.visitors.KontenVisitor;
+
 public class Konto extends AbstractKontoNode {
 	
 	private double saldo = 0;
@@ -22,6 +24,12 @@ public class Konto extends AbstractKontoNode {
 	public String toString() {
 		
 		return super.toString() + ", Saldo = " + saldo;
+	}
+
+	@Override
+	public void accept(KontenVisitor visitor) {
+		visitor.visit(this);
+		
 	}
 
 }

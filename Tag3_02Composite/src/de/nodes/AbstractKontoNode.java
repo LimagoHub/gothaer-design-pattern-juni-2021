@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
+import de.nodes.visitors.KontenVisitor;
+
 public abstract class AbstractKontoNode {
 	
 	private String label;
@@ -53,4 +55,12 @@ public abstract class AbstractKontoNode {
 		getChildren().forEach(c->c.iteratorHelper(listToFill));
 	}
 
+	public abstract void accept(KontenVisitor visitor);
+	
+	public void iterate(KontenVisitor visitor) {
+		visitor.init();
+		iterator().forEachRemaining(a->a.accept(visitor));
+		visitor.dispose();
+	}
+	
 }

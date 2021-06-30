@@ -3,10 +3,11 @@ package de.db;
 public class DBBetterDemo {
 	
 	private static final String FORMAT_STRING = "%-40s|";
+	private static final String SELECT_STATEMENT = "select * from tbl_personen";
 
 	public static void main(String[] args) throws Exception{
 
-		try(Table table = new Table("select * from tbl_personen")) {
+		try(Table table = new Table(SELECT_STATEMENT)) {
 			
 			
 			for(int column = 0; column < table.getColumnCount(); column ++) {

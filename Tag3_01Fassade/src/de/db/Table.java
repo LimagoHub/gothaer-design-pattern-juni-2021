@@ -24,7 +24,7 @@ public class Table implements AutoCloseable{
 	}
 	
 	public String getColumnName(int column) throws Exception {
-		return getResultSetMetaData().getColumnName(column + 1);
+		return getResultSetMetaData().getColumnName(column + 1); // Zählweise korrigieren
 	}
 
 	public String getColumnValue(int column) throws Exception {

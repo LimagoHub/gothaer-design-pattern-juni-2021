@@ -28,6 +28,7 @@ public class DBDemo {
 					while(resultSet.next()) {
 						for(int column = 1; column <= resultSetMetaData.getColumnCount(); column ++) {
 							System.out.printf(FORMAT_STRING, resultSet.getString(column));
+							// System.out.printf(FORMAT_STRING, resultSet.getString(column));
 						}
 						System.out.println();
 					}
@@ -35,6 +36,10 @@ public class DBDemo {
 				}
 			}
 		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		catch (Exception e) {
 
 			e.printStackTrace();
 		}

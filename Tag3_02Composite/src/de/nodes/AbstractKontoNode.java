@@ -38,7 +38,7 @@ public abstract class AbstractKontoNode {
 		builder.append(getClass().getSimpleName());
 		builder.append(" label=");
 		builder.append(label);
-		return builder.toString();
+		return builder.toString(); 
 	}
 	
 	

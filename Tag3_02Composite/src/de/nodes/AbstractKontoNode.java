@@ -41,6 +41,8 @@ public abstract class AbstractKontoNode {
 		return builder.toString();
 	}
 	
+	
+	
 	public Iterator<AbstractKontoNode> iterator() {
 		final List<AbstractKontoNode> result = new ArrayList<>();
 		iteratorHelper(result);
